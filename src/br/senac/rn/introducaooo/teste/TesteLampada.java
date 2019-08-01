@@ -7,6 +7,10 @@ public class TesteLampada {
 
         Lampada lampada = new Lampada("Preto", 50);
 
+
+
+
+
         System.out.println(lampada.FREQUENCIA);
 
     }
