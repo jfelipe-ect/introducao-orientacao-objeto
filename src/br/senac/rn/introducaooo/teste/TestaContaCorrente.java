@@ -12,17 +12,18 @@ public class TestaContaCorrente {
         contaFlavio.setTitular("Flavio Araújo");
         contaFlavio.setAgencia("1234-8");
         contaFlavio.setNumero("4564-4");
-        contaFlavio.setTaxa(1.0);
 
         contaFlavio.deposita(800.0);
 
         System.out.println(contaFlavio);
 
-        Conta contaCaio = new ContaCorrente();
+        ContaCorrente contaCaio = new ContaCorrente();
 
         contaCaio.setTitular("Caio");
         contaCaio.setAgencia("4568-7");
         contaCaio.setNumero("1478-3");
+        contaCaio.setLimite();
+
 
         System.out.println(contaCaio);
 

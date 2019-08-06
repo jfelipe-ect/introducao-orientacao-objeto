@@ -42,24 +42,27 @@ public abstract class Conta {
         this.saldo = saldo;
     }
 
-    public void deposita (Double valor){
-        saldo += valor;
+    public abstract Boolean saca(Double valor);
+
+    public Boolean deposita (Double valor){
+        if (valor < 0){
+            saldo += valor;
+            return  true;
+        }
+        return false;
     }
 
-    public void saca(Double valor){
-        saldo -= valor;
+   public Boolean transfere(Conta contaDestino, Double valor){
+        if (saca(valor)){
+            contaDestino.deposita(valor);
+            return  true;
+        }
+        return false;
     }
-
-    public void transfere(Conta contaDestino, Double valor){
-        this.saca(valor);
-        contaDestino.deposita(valor);
-     }
 
     @Override
     public String toString() {
-        return "Conta{" +
-                "saldo=" + saldo +
-                ", titular='" + titular + '\'' +
+        return "saldo=" + saldo + ", titular='" + titular + '\'' +
                 '}';
     }
 }
