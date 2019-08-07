@@ -2,10 +2,17 @@ package br.senac.rn.introducaooo;
 
 public abstract class Conta {
 
+    private static Integer id = 0;
+
     protected String agencia;
     protected String numero;
     protected Double saldo = 0.0;
-    protected String titular;
+    protected Pessoa titular;
+
+    public  Conta(){
+        id += 1;
+        numero = id.toString();
+    }
 
     public String getAgencia() {
         return agencia;
@@ -19,7 +26,7 @@ public abstract class Conta {
         return saldo;
     }
 
-    public String getTitular() {
+    public Pessoa getTitular() {
         return titular;
     }
 
@@ -27,16 +34,11 @@ public abstract class Conta {
         this.agencia = agencia;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public void setTitular(String titular) {
+    public void setTitular(Pessoa titular) {
         this.titular = titular;
     }
 
-    public Conta() {
-    }
+
 
     public Conta(Double saldo) {
         this.saldo = saldo;
@@ -55,14 +57,17 @@ public abstract class Conta {
    public Boolean transfere(Conta contaDestino, Double valor){
         if (saca(valor)){
             contaDestino.deposita(valor);
-            return  true;
+            return true;
         }
         return false;
     }
 
     @Override
     public String toString() {
-        return "saldo=" + saldo + ", titular='" + titular + '\'' +
+        return "Conta{" +
+                "numero='" + numero + '\'' +
+                ", saldo=" + saldo +
+                ", titular=" + titular +
                 '}';
     }
 }

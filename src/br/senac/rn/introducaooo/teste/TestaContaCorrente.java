@@ -2,6 +2,8 @@ package br.senac.rn.introducaooo.teste;
 
 import br.senac.rn.introducaooo.Conta;
 import br.senac.rn.introducaooo.ContaCorrente;
+import br.senac.rn.introducaooo.Pessoa;
+import br.senac.rn.introducaooo.Sexo;
 
 public class TestaContaCorrente {
 
@@ -9,9 +11,16 @@ public class TestaContaCorrente {
 
         ContaCorrente contaFlavio = new ContaCorrente();
 
-        contaFlavio.setTitular("Flavio Araújo");
+        Pessoa flavio = new Pessoa();
+
+        flavio.setNome("Flávio Araújo");
+        flavio.setSexo(Sexo.MASCULINO);
+
+
+
+        contaFlavio.setTitular(flavio);
         contaFlavio.setAgencia("1234-8");
-        contaFlavio.setNumero("4564-4");
+
 
         contaFlavio.deposita(800.0);
 
@@ -19,11 +28,24 @@ public class TestaContaCorrente {
 
         ContaCorrente contaCaio = new ContaCorrente();
 
-        contaCaio.setTitular("Caio");
-        contaCaio.setAgencia("4568-7");
-        contaCaio.setNumero("1478-3");
-        contaCaio.setLimite();
+        Pessoa caio = new Pessoa();
 
+        caio.setNome("Caio César");
+        caio.setSexo(Sexo.MASCULINO);
+
+
+        contaCaio.setTitular(caio);
+        contaCaio.setAgencia("4568-7");
+
+        contaCaio.setLimite(500.0);
+
+        contaCaio.deposita(1000.0);
+
+        System.out.println(contaCaio);
+
+        contaCaio.transfere(contaFlavio, 1200.0);
+
+        System.out.println(contaFlavio);
 
         System.out.println(contaCaio);
 
